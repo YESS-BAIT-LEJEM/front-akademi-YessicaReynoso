@@ -1,0 +1,185 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Comida Premium Perro Adulto",
+        "category": "alimento",
+        "price": 7200,
+        "stock": 15,
+        "description": "Bolsa de 3kg de alimento balanceado para perros adultos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 2,
+        "name": "Pelota con cuerda",
+        "category": "juguete",
+        "price": 1800,
+        "stock": 30,
+        "description": "Pelota de goma con cuerda para tirar.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 3,
+        "name": "Comedero Doble Antideslizante",
+        "category": "accesorio",
+        "price": 3200,
+        "stock": 20,
+        "description": "Comedero y bebedero doble, antideslizante.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 4,
+        "name": "Rascador con plataforma",
+        "category": "accesorio",
+        "price": 8500,
+        "stock": 5,
+        "description": "Rascador con juguete y plataforma para gatos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 5,
+        "name": "Shampoo Antipulgas",
+        "category": "higiene",
+        "price": 2700,
+        "stock": 12,
+        "description": "Shampoo antipulgas para perros y gatos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 6,
+        "name": "Juguete ratón con catnip",
+        "category": "juguete",
+        "price": 800,
+        "stock": 40,
+        "description": "Ratón de peluche con catnip para gatos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 7,
+        "name": "Transportadora Mediana",
+        "category": "accesorio",
+        "price": 9500,
+        "stock": 8,
+        "description": "Transportadora plástica con puerta metálica.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 8,
+        "name": "Alimento húmedo gato",
+        "category": "alimento",
+        "price": 950,
+        "stock": 50,
+        "description": "Sobre de 85g con carne y verduras.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 9,
+        "name": "Arnés regulable para perro",
+        "category": "accesorio",
+        "price": 2900,
+        "stock": 25,
+        "description": "Arnés ajustable de nylon, varios colores.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 10,
+        "name": "Cepillo de pelo doble cara",
+        "category": "higiene",
+        "price": 2100,
+        "stock": 15,
+        "description": "Cepillo de cerdas suaves y metálicas.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 11,
+        "name": "Cama acolchada redonda",
+        "category": "accesorio",
+        "price": 7800,
+        "stock": 10,
+        "description": "Cama de felpa para perro/gato, 60cm diámetro.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 12,
+        "name": "Hueso de goma con sonido",
+        "category": "juguete",
+        "price": 1600,
+        "stock": 35,
+        "description": "Hueso de goma resistente, ideal para morder.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 13,
+        "name": "Pipeta antipulgas",
+        "category": "higiene",
+        "price": 3800,
+        "stock": 18,
+        "description": "Pipeta mensual antiparasitaria para perros medianos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 14,
+        "name": "Collar luminoso LED",
+        "category": "accesorio",
+        "price": 2600,
+        "stock": 22,
+        "description": "Collar con luz LED para paseos nocturnos.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 15,
+        "name": "Comida light perro senior",
+        "category": "alimento",
+        "price": 8100,
+        "stock": 12,
+        "description": "Bolsa de 2kg, fórmula baja en grasa para perros mayores.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 16,
+        "name": "Pelota rebotadora",
+        "category": "juguete",
+        "price": 900,
+        "stock": 50,
+        "description": "Pelota rebotadora para juegos al aire libre.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 17,
+        "name": "Toallitas húmedas para mascotas",
+        "category": "higiene",
+        "price": 1200,
+        "stock": 40,
+        "description": "Toallitas sin alcohol, aptas para todo tipo de mascotas.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 18,
+        "name": "Fuente automática de agua",
+        "category": "accesorio",
+        "price": 10500,
+        "stock": 7,
+        "description": "Fuente con filtro para agua fresca continua.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 19,
+        "name": "Snacks dentales para perro",
+        "category": "alimento",
+        "price": 2500,
+        "stock": 28,
+        "description": "Snacks que limpian los dientes y refrescan el aliento.",
+        "image_url": "https://via.placeholder.com/150"
+      },
+      {
+        "id": 20,
+        "name": "Bolso mochila para gatos",
+        "category": "accesorio",
+        "price": 8800,
+        "stock": 6,
+        "description": "Mochila con visor transparente para gatos.",
+        "image_url": "https://via.placeholder.com/150"
+      }
+    ]
+  }
+  
