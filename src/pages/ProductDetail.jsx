@@ -16,7 +16,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // Convertir el id a número (porque JSON Server usa números)
+
   const productId = parseInt(id, 10);
 
   const product = useSelector(state =>

@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setProducts } from '../redux/actions/productActions';
 import { Container, Typography, Grid } from '@mui/material';
-import ProductCard from '../components/ProductCard;
+import ProductCard from '../components/ProductCard';
+
 
 const Home = () => {
   const dispatch = useDispatch();
