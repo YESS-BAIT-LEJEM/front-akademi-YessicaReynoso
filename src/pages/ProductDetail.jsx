@@ -1,66 +1,36 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import {
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  CardMedia,
-  Box,
-  Button
-} from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Container, Typography, Button, Box } from '@mui/material';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [product, setProduct] = useState(null);
 
+  useEffect(() => {
+    axios.get(`http://localhost:3001/products/${id}`)
+      .then(res => setProduct(res.data))
+      .catch(err => console.error(err));
+  }, [id]);
 
-  const productId = parseInt(id, 10);
-
-  const product = useSelector(state =>
-    state.productsState.products.find(p => p.id === productId)
-  );
-
-  if (!product) {
-    return (
-      <Container>
-        <Typography variant="h5" color="error" sx={{ mt: 4 }}>
-          Producto no encontrado.
-        </Typography>
-      </Container>
-    );
-  }
+  if (!product) return <p>Cargando...</p>;
 
   return (
-    <Container>
+    <Container maxWidth="sm">
+      <Typography variant="h4" sx={{ my: 3 }}>
+        {product.name}
+      </Typography>
+      <Typography><strong>Precio:</strong> ${product.price}</Typography>
+      <Typography><strong>Stock:</strong> {product.stock}</Typography>
+      <Typography><strong>Descripción:</strong> {product.description}</Typography>
+      <Typography><strong>Categoría:</strong> {product.category}</Typography>
+      <img src={product.image_url} alt={product.name} width="100%" style={{ marginTop: 16 }} />
+      
       <Box sx={{ mt: 4 }}>
-        <Card>
-          <CardMedia
-            component="img"
-            height="300"
-            image={product.image_url}
-            alt={product.name}
-          />
-          <CardContent>
-            <Typography variant="h4">{product.name}</Typography>
-            <Typography variant="subtitle1" color="text.secondary" sx={{ mt: 1 }}>
-              Categoría: {product.category}
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 2 }}>
-              {product.description}
-            </Typography>
-            <Typography variant="h6" sx={{ mt: 2 }}>
-              Precio: ${product.price}
-            </Typography>
-            <Typography variant="body2">Stock: {product.stock}</Typography>
-
-            <Button variant="outlined" sx={{ mt: 3 }} onClick={() => navigate(-1)}>
-              Volver
-            </Button>
-          </CardContent>
-        </Card>
+        <Button variant="contained" onClick={() => navigate(`/product/${product.id}/edit`)}>
+          Editar producto ✏️
+        </Button>
       </Box>
     </Container>
   );

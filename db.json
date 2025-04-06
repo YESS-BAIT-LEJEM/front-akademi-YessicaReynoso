@@ -2,11 +2,11 @@
   "products": [
     {
       "id": "1",
-      "name": "Producto 1",
+      "name": "Manzana",
       "category": "categoría",
-      "price": 1100,
-      "stock": 11,
-      "description": "Descripción del producto número 1.",
+      "price": "8000",
+      "stock": "10",
+      "description": "Manzanas verdes",
       "image_url": "https://picsum.photos/seed/1/200"
     },
     {
