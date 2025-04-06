@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { TextField, Button, Container, Typography, Box } from '@mui/material';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/ProductTable';
 
 const EditProduct = () => {
   const { id } = useParams();
