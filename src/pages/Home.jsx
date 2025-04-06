@@ -14,6 +14,8 @@ import {
   Button
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 
 const Home = () => {
@@ -120,7 +122,7 @@ const Home = () => {
   color="primary"
   onClick={() => navigate('/add-product')}
 >
-  + Agregar producto
+  Agregar producto
 </Button>
 
 

@@ -1,65 +1,11 @@
 {
   "products": [
     {
-      "id": "1",
-      "name": "DogChaw Premium ",
-      "category": "alimento",
-      "price": 1512,
-      "stock": 24,
-      "description": "Alimento balanceado para perros adultos, rico en proteínas.",
-      "image_url": "https://picsum.photos/seed/1/200"
-    },
-    {
-      "id": "2",
-      "name": "Whiskas Gatos",
-      "category": "alimento",
-      "price": 4497,
-      "stock": 25,
-      "description": "Alimento seco para gatos adultos, sabor carne.",
-      "image_url": "https://picsum.photos/seed/2/200"
-    },
-    {
-      "id": "3",
-      "name": "Royal Canin Mini",
-      "category": "alimento",
-      "price": 9477,
-      "stock": 10,
-      "description": "Alimento premium para perros de raza pequeña.",
-      "image_url": "https://picsum.photos/seed/3/200"
-    },
-    {
-      "id": "4",
-      "name": "Eukanuba Cachorros",
-      "category": "alimento",
-      "price": 5089,
-      "stock": 18,
-      "description": "Nutrición especializada para cachorros.",
-      "image_url": "https://picsum.photos/seed/4/200"
-    },
-    {
-      "id": "5",
-      "name": "Correa retráctil",
-      "category": "accesorio",
-      "price": 8160,
-      "stock": 35,
-      "description": "Correa extensible para perros pequeños y medianos.",
-      "image_url": "https://picsum.photos/seed/5/200"
-    },
-    {
-      "id": "6",
-      "name": "Collar con hebilla",
-      "category": "accesorio",
-      "price": 4097,
-      "stock": 12,
-      "description": "Collar ajustable con hebilla metálica.",
-      "image_url": "https://picsum.photos/seed/6/200"
-    },
-    {
       "id": "7",
       "name": "Bolso transportador",
       "category": "accesorio",
       "price": 6916,
-      "stock": 45,
+      "stock": "90",
       "description": "Bolso reforzado para transportar mascotas pequeñas.",
       "image_url": "https://picsum.photos/seed/7/200"
     },
@@ -151,6 +97,15 @@
       "stock": 10,
       "description": "Super tazón para tu mascota, hecho con materiales sustentables",
       "image_url": "https://picsum.photos/seed/14/200",
+      "category": "accesorio"
+    },
+    {
+      "id": "3d89",
+      "name": "Corre para perro ",
+      "price": 5000,
+      "stock": "80",
+      "description": "Correa para tu mascota, hecho con materiales sustentables",
+      "image_url": "https://picsum.photos/seed/16/200",
       "category": "accesorio"
     }
   ]

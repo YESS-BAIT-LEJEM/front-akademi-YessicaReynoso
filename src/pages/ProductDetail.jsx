@@ -26,12 +26,6 @@ const ProductDetail = () => {
       <Typography><strong>Descripción:</strong> {product.description}</Typography>
       <Typography><strong>Categoría:</strong> {product.category}</Typography>
       <img src={product.image_url} alt={product.name} width="100%" style={{ marginTop: 16 }} />
-      
-      <Box sx={{ mt: 4 }}>
-        <Button variant="contained" onClick={() => navigate(`/product/${product.id}/edit`)}>
-          Editar producto ✏️
-        </Button>
-      </Box>
     </Container>
   );
 };
