@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container, Typography, TextField, Button, Box
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Box
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -10,7 +14,6 @@ import Message from '../components/Message';
 const EditProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -54,30 +57,51 @@ const EditProduct = () => {
       .finally(() => setConfirmOpen(false));
   };
 
+  const openSaveConfirm = () => {
+    setConfirmOpen(true);
+  };
+
   return (
-    <Container>
-      <Typography variant="h4" sx={{ mt: 3, mb: 2 }}>
+    <Container maxWidth="sm">
+      <Typography variant="h5" sx={{ my: 3 }}>
         Editar producto
       </Typography>
 
-      <Box component="form" noValidate autoComplete="off" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <TextField label="Nombre" name="name" value={product.name} onChange={handleChange} />
-        <TextField label="Precio" name="price" type="number" value={product.price} onChange={handleChange} />
-        <TextField label="Categoría" name="category" value={product.category} onChange={handleChange} />
-        <TextField label="Stock" name="stock" type="number" value={product.stock} onChange={handleChange} />
-        <TextField label="Descripción" name="description" value={product.description} onChange={handleChange} />
-        <TextField label="URL de imagen" name="image_url" value={product.image_url} onChange={handleChange} />
+      <Box component="form" noValidate autoComplete="off">
+        <TextField fullWidth label="Nombre*" name="name" value={product.name} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="Precio*" name="price" type="number" value={product.price} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="Categoría*" name="category" value={product.category} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="Stock*" name="stock" type="number" value={product.stock} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="Descripción*" name="description" value={product.description} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="URL de imagen*" name="image_url" value={product.image_url} onChange={handleChange} sx={{ mb: 2 }} />
 
-        <Button variant="contained" onClick={() => setConfirmOpen(true)}>
-          Guardar cambios
-        </Button>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 3 }}>
+          <Button variant="outlined" color="inherit" onClick={() => navigate('/')}>
+            Cancelar
+          </Button>
+          <Button
+            variant="contained"
+            onClick={openSaveConfirm}
+            sx={{
+              backgroundColor: '#FFB6B9',
+              color: '#fff',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              '&:hover': {
+                backgroundColor: '#FF9AA2'
+              }
+            }}
+          >
+            Guardar cambios
+          </Button>
+        </Box>
       </Box>
 
       <ConfirmDialog
         open={confirmOpen}
         onClose={() => setConfirmOpen(false)}
         onConfirm={handleSave}
-        title="Guardar cambios"
+        title="¿Guardar cambios?"
         description="¿Estás segura/o de que querés guardar los cambios?"
         confirmLabel="Guardar"
         confirmColor="primary"

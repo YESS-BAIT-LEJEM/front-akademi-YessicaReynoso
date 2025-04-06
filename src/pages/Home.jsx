@@ -94,7 +94,7 @@ const Home = () => {
   return (
     <Container>
       <Typography variant="h4" sx={{ my: 3 }}>
-        Lista de productos
+       PRODUCTOS
       </Typography>
 
       <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap' , justifyContent: 'space-between', alignItems: 'center' }}>
@@ -118,15 +118,20 @@ const Home = () => {
           ))}
         </Select>
         <Button
-  variant="contained"
-  color="primary"
-  onClick={() => navigate('/add-product')}
+          variant="contained"
+          onClick={() => navigate('/add-product')} 
+          sx={{
+            backgroundColor: '#FFB6B9',
+            color: '#fff',
+            fontWeight: 'bold',
+            textTransform: 'none',
+            '&:hover': {
+              backgroundColor: '#FF9AA2',
+            },
+          }}
 >
-  Agregar producto
-</Button>
-
-
-
+          Agregar producto
+        </Button>
       </Box>
 
         {paginatedProducts.length === 0 ? (
@@ -144,12 +149,26 @@ const Home = () => {
 
 
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-        <Pagination
-          count={Math.ceil(filteredProducts.length / itemsPerPage)}
-          page={page}
-          onChange={handleChangePage}
-          color="primary"
-        />
+      <Pagination
+  count={Math.ceil(filteredProducts.length / itemsPerPage)}
+  page={page}
+  onChange={handleChangePage}
+  sx={{
+    '& .MuiPaginationItem-root': {
+      color: '#4a4a4a', 
+      fontWeight: 'bold',
+    },
+    '& .Mui-selected': {
+      backgroundColor: '#FFB6B9 !important',
+      color: '#fff',
+    },
+    '& .MuiPaginationItem-root:hover': {
+      backgroundColor: '#FF9AA2',
+      color: '#fff',
+    },
+  }}
+/>
+
       </Box>
     </Container>
   );
