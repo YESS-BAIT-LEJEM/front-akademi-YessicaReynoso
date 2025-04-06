@@ -3,10 +3,11 @@ export const setProducts = (products) => ({
     payload: products
   });
 
-export const deletProducts = (products) => ({
-    type: 'DELET_PRODUCTS',
-    payload: products
+  export const deleteProduct = (id) => ({
+    type: 'DELETE_PRODUCT',
+    payload: id
   });
+  
   
   
 

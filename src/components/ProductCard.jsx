@@ -9,8 +9,44 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { deleteProduct } from '../redux/actions/productActions';
+
+
+// const dispatch = useDispatch();
+
+// const handleDelete = async () => {
+//   const confirm = window.confirm("¿Estás segura de eliminar este producto?");
+//   if (!confirm) return;
+
+//   try {
+//     await axios.delete(`http://localhost:3001/products/${product.id}`);
+//     dispatch(deleteProduct(product.id));
+//   } catch (err) {
+//     console.error('Error al eliminar:', err);
+//   }
+// };
+
+
+
+
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  
+const dispatch = useDispatch();
+
+const handleDelete = async () => {
+  const confirm = window.confirm("¿Estás segura de eliminar este producto?");
+  if (!confirm) return;
+
+  try {
+    await axios.delete(`http://localhost:3001/products/${product.id}`);
+    dispatch(deleteProduct(product.id));
+  } catch (err) {
+    console.error('Error al eliminar:', err);
+  }
+};
 
   return (
     <Card sx={{ maxWidth: 300, m: 1 }}>
@@ -35,7 +71,12 @@ const ProductCard = ({ product }) => {
           onClick={() => navigate(`/product/${product.id}`)}
         >
           Ver detalle
+        </Button> 
+        <Button size="small" color="error" onClick={handleDelete}>
+          Eliminar 🗑
         </Button>
+
+
       </CardActions>
     </Card>
   );
