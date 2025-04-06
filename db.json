@@ -4,8 +4,8 @@
       "id": "7",
       "name": "Bolso transportador",
       "category": "accesorio",
-      "price": 6916,
-      "stock": "90",
+      "price": "6916",
+      "stock": "100",
       "description": "Bolso reforzado para transportar mascotas pequeñas.",
       "image_url": "https://picsum.photos/seed/7/200"
     },

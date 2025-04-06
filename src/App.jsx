@@ -13,7 +13,7 @@ function App() {
     <>
       <CssBaseline />
       <Box
-        sx={{
+        sx={{ 
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100vh'
@@ -21,9 +21,17 @@ function App() {
       >
         <Navbar />
 
-        {/* Contenido principal crece para llenar el espacio */}
-        <Box component="main" sx={{ flexGrow: 1, py: 4 }}>
-          <Container>
+        <Box component="main" sx={{ flexGrow: 1, py: 2 }}>
+          <Container
+            maxWidth="md"
+            sx={{
+              minHeight: 'calc(0vh - 10px)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              py: -1,
+            }}
+          >
             <Routes>
               <Route path="/" element={<Navigate to="/Home" />} />
               <Route path="/Home" element={<Home />} />

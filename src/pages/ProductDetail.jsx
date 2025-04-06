@@ -18,7 +18,12 @@ const ProductDetail = () => {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h4" sx={{ my: 3 }}>
+      <Typography variant="h4" sx={{
+    my: 3,
+    fontWeight: 600,
+    color: 'primary.main',
+    letterSpacing: '1px'
+  }}>
         {product.name}
       </Typography>
       <Typography><strong>Precio:</strong> ${product.price}</Typography>

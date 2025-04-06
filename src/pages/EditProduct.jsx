@@ -63,7 +63,12 @@ const EditProduct = () => {
 
   return (
     <Container maxWidth="sm">
-      <Typography variant="h5" sx={{ my: 3 }}>
+      <Typography variant="h5" sx={{
+    my: 3,
+    fontWeight: 600,
+    color: 'primary.main',
+    letterSpacing: '1px'
+  }}>
         Editar producto
       </Typography>
 

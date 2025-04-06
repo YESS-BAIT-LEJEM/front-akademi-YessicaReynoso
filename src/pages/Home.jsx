@@ -93,9 +93,18 @@ const Home = () => {
 
   return (
     <Container>
-      <Typography variant="h4" sx={{ my: 3 }}>
-       PRODUCTOS
-      </Typography>
+      <Typography
+  variant="h4"
+  sx={{
+    my: 3,
+    fontWeight: 600,
+    color: 'primary.main',
+    letterSpacing: '1px'
+  }}
+>
+  PRODUCTOS
+</Typography>
+
 
       <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap' , justifyContent: 'space-between', alignItems: 'center' }}>
         <TextField
@@ -148,7 +157,8 @@ const Home = () => {
       )}
 
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
+  <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, mb: 0 }}>
+
       <Pagination
   count={Math.ceil(filteredProducts.length / itemsPerPage)}
   page={page}
