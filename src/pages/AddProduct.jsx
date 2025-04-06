@@ -20,7 +20,7 @@ const AddProduct = () => {
     price: '',
     stock: '',
     description: '',
-    image_url: '',
+    image: '',
     category: '',
   });
 
@@ -81,7 +81,7 @@ const AddProduct = () => {
       !formData.price ||
       !formData.stock ||
       !formData.description ||
-      !formData.image_url ||
+      !formData.image||
       !formData.category
     ) {
       setMessageText('Todos los campos son obligatorios');
@@ -109,7 +109,7 @@ const AddProduct = () => {
         <TextField fullWidth name="price" label="Precio*" type="number" value={formData.price} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="stock" label="Stock*" type="number" value={formData.stock} onChange={handleChange} error={!!errors.stock} helperText={errors.stock} sx={{ mb: 2 }} />
         <TextField fullWidth name="description" label="Descripción*" value={formData.description} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth name="image_url" label="URL Imagen*" value={formData.image_url} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth name="image" label="URL Imagen*" value={formData.image} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="category" label="Categoría*" select value={formData.category} onChange={handleChange} sx={{ mb: 2 }}>
           <MenuItem value="alimento">Alimento</MenuItem>
           <MenuItem value="accesorio">Accesorio</MenuItem>

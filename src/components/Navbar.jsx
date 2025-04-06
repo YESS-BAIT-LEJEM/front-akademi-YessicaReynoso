@@ -9,8 +9,8 @@ const Navbar = () => {
       elevation={0}
       sx={{
         mb: 4,
-        bgcolor: '#FFE4E1', // rosa suave pastel
-        color: '#4A4A4A',    // gris oscuro pastel
+        bgcolor: '#FFE4E1', 
+        color: '#4A4A4A',   
         fontFamily: 'Poppins, sans-serif',
       }}
     >

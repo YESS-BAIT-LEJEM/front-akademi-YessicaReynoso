@@ -20,7 +20,7 @@ const EditProduct = () => {
     category: '',
     stock: '',
     description: '',
-    image_url: ''
+    image: ''
   });
 
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -99,7 +99,7 @@ const EditProduct = () => {
         <TextField fullWidth label="Categoría*" name="category" value={product.category} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth label="Stock*" name="stock" type="number" value={product.stock} onChange={handleChange} error={!!errors.stock} helperText={errors.stock}  sx={{ mb: 2 }} />
         <TextField fullWidth label="Descripción*" name="description" value={product.description} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth label="URL de imagen*" name="image_url" value={product.image_url} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="URL de imagen*" name="image" value={product.image} onChange={handleChange} sx={{ mb: 2 }} />
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 3 }}>
           <Button variant="outlined" color="inherit" onClick={() => navigate('/')}>

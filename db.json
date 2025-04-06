@@ -1,130 +1,112 @@
 {
   "products": [
     {
-      "id": "7",
-      "name": "Bolso transportador",
+      "id": "1",
+      "name": "Collar Rosa Pastel",
       "category": "accesorio",
-      "price": "6916",
-      "stock": "100",
-      "description": "Bolso reforzado para transportar mascotas pequeñas.",
-      "image_url": "https://picsum.photos/seed/7/200"
+      "price": 1580,
+      "stock": 100,
+      "description": "Collar para mascotas pequeñas.",
+      "image": "pet-images/collar-rosa.png"
     },
     {
-      "id": "8",
-      "name": "Comedero doble",
+      "id": "2",
+      "name": "Tazón Doble",
       "category": "accesorio",
       "price": 2504,
       "stock": 26,
       "description": "Comedero de acero inoxidable para comida y agua.",
-      "image_url": "https://picsum.photos/seed/8/200"
+      "image": "pet-images/tazon-doble.png"
     },
     {
-      "id": "9",
-      "name": "Pelota con sonido",
-      "category": "juguete",
-      "price": 2800,
-      "stock": 35,
-      "description": "Pelota de goma que emite sonido al morderse.",
-      "image_url": "https://picsum.photos/seed/9/200"
-    },
-    {
-      "id": "10",
-      "name": "Hueso de goma",
-      "category": "juguete",
-      "price": 5909,
-      "stock": 34,
-      "description": "Hueso masticable ideal para perros pequeños.",
-      "image_url": "https://picsum.photos/seed/10/200"
-    },
-    {
-      "id": "11",
-      "name": "Ratón de peluche",
-      "category": "juguete",
-      "price": 4185,
-      "stock": 31,
-      "description": "Juguete suave para gatos con sonido.",
-      "image_url": "https://picsum.photos/seed/11/200"
-    },
-    {
-      "id": "12",
-      "name": "Cuerda con nudos",
-      "category": "juguete",
-      "price": 7778,
-      "stock": 24,
-      "description": "Cuerda resistente para jugar a tirar.",
-      "image_url": "https://picsum.photos/seed/12/200"
-    },
-    {
-      "id": "13",
+      "id": "3",
       "name": "Shampoo hipoalergénico",
       "category": "higiene",
-      "price": 7110,
-      "stock": 6,
+      "price": 2800,
+      "stock": 35,
       "description": "Shampoo suave ideal para pieles sensibles.",
-      "image_url": "https://picsum.photos/seed/13/200"
+      "image": "pet-images/shampoo-mascota.png"
     },
     {
-      "id": "14",
-      "name": "Toallitas húmedas",
+      "id": "4",
+      "name": "Collar con Moñito",
+      "category": "accesorio",
+      "price": 5909,
+      "stock": 34,
+      "description": "Hermoso y delicado collar con Moñito verde y corazones.",
+      "image": "pet-images/collar-rosa-monio.png"
+    },
+    {
+      "id": "5",
+      "name": "Cepillo para pelaje",
       "category": "higiene",
-      "price": 5662,
-      "stock": 30,
-      "description": "Toallitas desinfectantes para limpieza rápida.",
-      "image_url": "https://picsum.photos/seed/14/200"
+      "price": 3450,
+      "stock": 60,
+      "description": "Cepillo doble para mantener el pelaje suave y brillante.",
+      "image": "pet-images/cepillo-mascota.png"
     },
     {
-      "id": "15",
-      "name": "Cepillo doble cara",
-      "category": "higiene",
-      "price": 5808,
-      "stock": 47,
-      "description": "Cepillo con cerdas suaves y duras.",
-      "image_url": "https://picsum.photos/seed/15/200"
-    },
-    {
-      "id": "16",
+      "id": "6",
       "name": "Piedras sanitarias",
       "category": "higiene",
       "price": 6049,
       "stock": 50,
       "description": "Piedras absorbentes para bandeja de gatos.",
-      "image_url": "https://picsum.photos/seed/16/200"
+      "image": "pet-images/piedras-sanitarias.png"
     },
     {
-      "id": "e941",
-      "name": "Tazón para agua",
-      "price": 2000,
-      "stock": 10,
-      "description": "Super tazón para tu mascota, hecho con materiales sustentables",
-      "image_url": "https://picsum.photos/seed/14/200",
-      "category": "accesorio"
+      "id": "7",
+      "name": "Pipeta para Gato",
+      "category": "higiene",
+      "price": 3200,
+      "stock": 45,
+      "description": "Tratamiento antipulgas en pipeta para gatos.",
+      "image": "pet-images/pipeta-gato.png"
     },
     {
-      "id": "3d89",
-      "name": "Corre para perro ",
-      "price": 5000,
-      "stock": "80",
-      "description": "Correa para tu mascota, hecho con materiales sustentables",
-      "image_url": "https://picsum.photos/seed/16/200",
-      "category": "accesorio"
-    },
-    {
-      "id": "ebeb",
-      "name": "Correa para paseo",
+      "id": "8",
+      "name": "Pipeta para Perro",
+      "category": "higiene",
       "price": 3500,
-      "stock": "30",
-      "description": "Correa resistente",
-      "image_url": "https://picsum.photos/seed/16/200",
-      "category": "accesorio"
+      "stock": 50,
+      "description": "Tratamiento antipulgas en pipeta para perros.",
+      "image": "pet-images/pipeta-perro.png"
     },
     {
-      "id": "d9ba",
-      "name": "NNNN",
-      "price": 2000,
-      "stock": -8,
-      "description": "BBBB",
-      "image_url": "https://picsum.photos/seed/16/200",
-      "category": "higiene"
+      "id": "9",
+      "name": "Ratón de Peluche",
+      "category": "juguete",
+      "price": 4185,
+      "stock": 31,
+      "description": "Juguete suave para gatos con sonido.",
+      "image": "pet-images/raton-peluche.png"
+    },
+    {
+      "id": "10",
+      "name": "Ropa para Perro",
+      "category": "accesorio",
+      "price": 4200,
+      "stock": 25,
+      "description": "Abrigo rosa pastel para perros pequeños.",
+      "image": "pet-images/ropa-perrito.png"
+    },
+    {
+      "id": "11",
+      "name": "Soga de Juguete",
+      "category": "juguete",
+      "price": 3500,
+      "stock": 40,
+      "description": "Soga resistente ideal para jugar a tirar.",
+      "image": "pet-images/soga-juguete.png"
+    },
+    {
+      "id": "12",
+      "name": "Bolsa Transportadora",
+      "category": "accesorio",
+      "price": 5800,
+      "stock": 15,
+      "description": "Bolso reforzado para transportar mascotas pequeñas.",
+      "image": "pet-images/bolsa-transportadora-mascota.png"
     }
   ]
 }
