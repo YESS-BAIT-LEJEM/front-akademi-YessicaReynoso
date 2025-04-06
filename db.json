@@ -107,6 +107,24 @@
       "description": "Correa para tu mascota, hecho con materiales sustentables",
       "image_url": "https://picsum.photos/seed/16/200",
       "category": "accesorio"
+    },
+    {
+      "id": "ebeb",
+      "name": "Correa para paseo",
+      "price": 3500,
+      "stock": "30",
+      "description": "Correa resistente",
+      "image_url": "https://picsum.photos/seed/16/200",
+      "category": "accesorio"
+    },
+    {
+      "id": "d9ba",
+      "name": "NNNN",
+      "price": 2000,
+      "stock": -8,
+      "description": "BBBB",
+      "image_url": "https://picsum.photos/seed/16/200",
+      "category": "higiene"
     }
   ]
 }

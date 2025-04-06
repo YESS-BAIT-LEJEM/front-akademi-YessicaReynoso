@@ -33,13 +33,28 @@ const EditProduct = () => {
       .then(res => setProduct(res.data))
       .catch(err => console.log(err));
   }, [id]);
+  
+  const [errors, setErrors] = useState({});
+
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+  
+    if (name === 'stock') {
+      const stockValue = parseInt(value, 10);
+      if (stockValue < 0) {
+        setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
+      } else {
+        setErrors(prev => ({ ...prev, stock: '' }));
+      }
+    }
+  
     setProduct(prev => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
+  
 
   const handleSave = () => {
     axios.put(`http://localhost:3001/products/${id}`, product)
@@ -58,9 +73,15 @@ const EditProduct = () => {
   };
 
   const openSaveConfirm = () => {
+    const stockValue = parseInt(product.stock, 10);
+    if (stockValue < 0) {
+      setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
+      return;
+    }
+  
     setConfirmOpen(true);
   };
-
+  
   return (
     <Container maxWidth="sm">
       <Typography variant="h5" sx={{
@@ -76,7 +97,7 @@ const EditProduct = () => {
         <TextField fullWidth label="Nombre*" name="name" value={product.name} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth label="Precio*" name="price" type="number" value={product.price} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth label="Categoría*" name="category" value={product.category} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth label="Stock*" name="stock" type="number" value={product.stock} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth label="Stock*" name="stock" type="number" value={product.stock} onChange={handleChange} error={!!errors.stock} helperText={errors.stock}  sx={{ mb: 2 }} />
         <TextField fullWidth label="Descripción*" name="description" value={product.description} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth label="URL de imagen*" name="image_url" value={product.image_url} onChange={handleChange} sx={{ mb: 2 }} />
 

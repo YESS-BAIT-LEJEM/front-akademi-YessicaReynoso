@@ -28,11 +28,24 @@ const AddProduct = () => {
   const [messageOpen, setMessageOpen] = useState(false);
   const [messageText, setMessageText] = useState('');
   const [messageSeverity, setMessageSeverity] = useState('success');
+  const [errors, setErrors] = useState({});
+
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+  
+    if (name === 'stock') {
+      const stockValue = parseInt(value, 10);
+      if (stockValue < 0) {
+        setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
+      } else {
+        setErrors(prev => ({ ...prev, stock: '' }));
+      }
+    }
+  
+    setFormData({ ...formData, [name]: value });
   };
-
+  
   const handleSave = async () => {
     try {
       await axios.post('http://localhost:3001/products', {
@@ -56,7 +69,13 @@ const AddProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
+    const stockValue = parseInt(formData.stock, 10);
+    if (stockValue < 0) {
+      setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
+      return;
+    }
+  
     if (
       !formData.name ||
       !formData.price ||
@@ -70,10 +89,10 @@ const AddProduct = () => {
       setMessageOpen(true);
       return;
     }
-
+  
     setConfirmOpen(true);
   };
-
+  
   return (
     <Container maxWidth="sm">
       <Typography variant="h5" sx={{
@@ -88,7 +107,7 @@ const AddProduct = () => {
       <Box component="form" onSubmit={handleSubmit}>
         <TextField fullWidth name="name" label="Nombre*" value={formData.name} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="price" label="Precio*" type="number" value={formData.price} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth name="stock" label="Stock*" type="number" value={formData.stock} onChange={handleChange} sx={{ mb: 2 }} />
+        <TextField fullWidth name="stock" label="Stock*" type="number" value={formData.stock} onChange={handleChange} error={!!errors.stock} helperText={errors.stock} sx={{ mb: 2 }} />
         <TextField fullWidth name="description" label="Descripción*" value={formData.description} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="image_url" label="URL Imagen*" value={formData.image_url} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="category" label="Categoría*" select value={formData.category} onChange={handleChange} sx={{ mb: 2 }}>
