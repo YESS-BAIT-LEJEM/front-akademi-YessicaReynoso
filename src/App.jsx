@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { CssBaseline } from '@mui/material';
 import { Container, Typography, Grid, Pagination, Box } from '@mui/material';
 import Navbar from './components/Navbar';
+import EditProduct from './pages/EditProduct';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/product/:id/edit" element={<EditProduct />} />
           
         </Routes>
       </Container>
