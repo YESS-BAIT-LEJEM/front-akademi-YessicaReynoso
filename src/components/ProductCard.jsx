@@ -12,23 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { deleteProduct } from '../redux/actions/productActions';
-
-
-// const dispatch = useDispatch();
-
-// const handleDelete = async () => {
-//   const confirm = window.confirm("¿Estás segura de eliminar este producto?");
-//   if (!confirm) return;
-
-//   try {
-//     await axios.delete(`http://localhost:3001/products/${product.id}`);
-//     dispatch(deleteProduct(product.id));
-//   } catch (err) {
-//     console.error('Error al eliminar:', err);
-//   }
-// };
-
-
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const ProductCard = ({ product }) => {
@@ -72,6 +56,9 @@ const handleDelete = async () => {
         >
           Ver detalle
         </Button> 
+        <Button color="inherit" component={RouterLink} to="/add-product">
+          Agregar producto
+        </Button>
         <Button size="small" color="error" onClick={handleDelete}>
           Eliminar 🗑
         </Button>

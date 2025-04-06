@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import AddProduct from './pages/AddProduct';
 import ProductDetail from './pages/ProductDetail';
@@ -7,6 +7,7 @@ import { CssBaseline } from '@mui/material';
 import { Container, Typography, Grid, Pagination, Box } from '@mui/material';
 import Navbar from './components/Navbar';
 import EditProduct from './pages/EditProduct';
+
 
 
 
@@ -19,7 +20,8 @@ function App() {
       <Navbar />
       <Container sx={{ mt: 4 }}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/Home" />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/add-product" element={<AddProduct />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/product/:id/edit" element={<EditProduct />} />

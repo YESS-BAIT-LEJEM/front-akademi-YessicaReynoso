@@ -13,9 +13,6 @@ const Navbar = () => {
           <Button color="inherit" component={RouterLink} to="/">
             Inicio
           </Button>
-          <Button color="inherit" component={RouterLink} to="/add-product">
-            Agregar producto
-          </Button>
         </Box>
       </Toolbar>
     </AppBar>

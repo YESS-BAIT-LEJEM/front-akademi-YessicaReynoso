@@ -34,7 +34,7 @@ const Home = () => {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    setPage(1); // reinicia a la página 1
+    setPage(1); 
   };
   
   const handleFilterChange = (e) => {
