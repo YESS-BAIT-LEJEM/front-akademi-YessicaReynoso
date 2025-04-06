@@ -10,8 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { deleteProduct } from '../redux/actions/productActions';
+import SortMenu from './SortMenu';
 
-const ProductTable = ({ products }) => {
+const ProductTable = ({ products, onSort, sortBy, sortOrder }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -32,8 +33,24 @@ const ProductTable = ({ products }) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell><strong>Nombre</strong></TableCell>
-            <TableCell><strong>Precio</strong></TableCell>
+            <TableCell>
+              <SortMenu
+                field="name"
+                label="Nombre"
+                sortBy={sortBy}
+                sortOrder={sortOrder}
+                onSort={onSort}
+              />
+            </TableCell>
+            <TableCell>
+              <SortMenu
+                field="price"
+                label="Precio"
+                sortBy={sortBy}
+                sortOrder={sortOrder}
+                onSort={onSort}
+              />
+            </TableCell>
             <TableCell><strong>Categoría</strong></TableCell>
             <TableCell><strong>Stock</strong></TableCell>
             <TableCell align="center"><strong>Acciones</strong></TableCell>

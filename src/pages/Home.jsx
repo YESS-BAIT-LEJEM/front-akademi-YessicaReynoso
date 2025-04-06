@@ -10,15 +10,22 @@ import {
   TextField,
   Select,
   MenuItem,
-  Pagination
+  Pagination,
+  Button
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 
 const Home = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsState.products);
+  const navigate = useNavigate();
+
 
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('Todos');
+  const [sortBy, setSortBy] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
   const [page, setPage] = useState(1);
 
   const itemsPerPage = 5;
@@ -28,6 +35,29 @@ const Home = () => {
       .then((res) => dispatch(setProducts(res.data)))
       .catch((err) => console.log(err));
   }, [dispatch]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+    setPage(1);
+  };
+
+  const handleFilterChange = (e) => {
+    setCategoryFilter(e.target.value);
+    setPage(1);
+  };
+
+  const handleSort = (field) => {
+    if (sortBy === field) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(field);
+      setSortOrder('asc');
+    }
+  };
+
+  const handleChangePage = (event, value) => {
+    setPage(value);
+  };
 
   const filteredProducts = products.filter(product => {
     const matchesCategory =
@@ -40,23 +70,24 @@ const Home = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    if (!sortBy) return 0;
+
+    const aVal = a[sortBy];
+    const bVal = b[sortBy];
+
+    if (typeof aVal === 'string') {
+      return sortOrder === 'asc'
+        ? aVal.localeCompare(bVal)
+        : bVal.localeCompare(aVal);
+    }
+
+    return sortOrder === 'asc' ? aVal - bVal : bVal - aVal;
+  });
+
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setPage(1);
-  };
-
-  const handleFilterChange = (e) => {
-    setCategoryFilter(e.target.value);
-    setPage(1);
-  };
-
-  const handleChangePage = (event, value) => {
-    setPage(value);
-  };
+  const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
 
   return (
     <Container>
@@ -64,7 +95,7 @@ const Home = () => {
         Lista de productos
       </Typography>
 
-      <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+      <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap' , justifyContent: 'space-between', alignItems: 'center' }}>
         <TextField
           label="Buscar productos"
           variant="outlined"
@@ -84,9 +115,31 @@ const Home = () => {
             </MenuItem>
           ))}
         </Select>
+        <Button
+  variant="contained"
+  color="primary"
+  onClick={() => navigate('/add-product')}
+>
+  + Agregar producto
+</Button>
+
+
+
       </Box>
 
-      <ProductTable products={paginatedProducts} />
+        {paginatedProducts.length === 0 ? (
+        <Typography variant="h6" sx={{ mt: 4, textAlign: 'center' }}>
+          🐶 No hay productos disponibles para mostrar.
+        </Typography>
+      ) : (
+        <ProductTable
+          products={paginatedProducts}
+          onSort={handleSort}
+          sortBy={sortBy}
+          sortOrder={sortOrder}
+        />
+      )}
+
 
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
         <Pagination
