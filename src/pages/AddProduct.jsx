@@ -52,7 +52,7 @@ const AddProduct = () => {
         image: formData.image || DEFAULT_IMAGE
       });
 
-      dispatch(addProduct(response.data)); // 🔥 ACTUALIZA REDUX
+      dispatch(addProduct(response.data));
 
       setMessageText('Producto agregado exitosamente');
       setMessageSeverity('success');

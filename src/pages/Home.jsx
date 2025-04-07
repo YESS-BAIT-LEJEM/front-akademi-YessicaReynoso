@@ -11,7 +11,10 @@ import {
   Select,
   MenuItem,
   Pagination,
+  FormControl, 
+  InputLabel,
   Button
+
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -86,7 +89,7 @@ const Home = () => {
   const endIndex = startIndex + itemsPerPage;
   const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
 
-  // 🔐 Corregimos categorías con filtro de valores válidos
+
   const uniqueCategories = [...new Set(products.map(p => p.category).filter(Boolean))];
 
   return (
@@ -104,26 +107,55 @@ const Home = () => {
       </Typography>
 
       <Box sx={{ mb: 3, display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
-        <TextField
-          label="Buscar productos"
-          variant="outlined"
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
+      <TextField
+      
+  label="Buscar productos"
+  variant="outlined"
+   
+  value={searchTerm}
+  onChange={handleSearchChange}
+  InputLabelProps={{ shrink: true }}
+  autoComplete="off"
 
-        <Select
-          value={categoryFilter}
-          onChange={handleFilterChange}
-          displayEmpty
-          sx={{ width: 200 }}
-        >
-          <MenuItem value="Todos">Todos</MenuItem>
-          {uniqueCategories.map((cat, i) => (
-            <MenuItem key={i} value={cat}>
-              {typeof cat === 'string' ? cat.charAt(0).toUpperCase() + cat.slice(1) : 'Sin categoría'}
-            </MenuItem>
-          ))}
-        </Select>
+  sx={{
+    minWidth: 200,
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': { borderColor: '#f48fb1' },
+      '&:hover fieldset': { borderColor: '#ec407a' },
+      '&.Mui-focused fieldset': { borderColor: '#ec407a' },
+    },
+  }}
+/>
+
+<FormControl variant="outlined" sx={{ minWidth: 200 }}>
+  <InputLabel id="filter-label">Filtros</InputLabel>
+  <Select
+    labelId="filter-label"
+    label="Filtros"
+    value={categoryFilter}
+    onChange={handleFilterChange}
+    sx={{
+      '& .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#f48fb1',
+      },
+      '&:hover .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ec407a',
+      },
+      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ec407a',
+      },
+    }}
+  >
+    <MenuItem value="Todos">Todos</MenuItem>
+    {uniqueCategories.map((cat, i) => (
+      <MenuItem key={i} value={cat}>
+        {typeof cat === 'string' ? cat.charAt(0).toUpperCase() + cat.slice(1) : 'Sin categoría'}
+      </MenuItem>
+    ))}
+  </Select>
+</FormControl>
+
+
 
         <Button
           variant="contained"
