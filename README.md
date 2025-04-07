@@ -65,12 +65,13 @@ La app actualiza el estado global:
 ```
 src/
 │
-├── components/        # Componentes reutilizables (tabla, filtros, mensajes)
-├── pages/             # Vistas: Home, AddProduct, EditProduct
+├── components/        # Componentes reutilizables (tabla, filtros, mensajes, etc)
+├── pages/             # Vistas: Home, AddProduct, EditProduct, ProductDetail
 ├── redux/
 │   ├── actions/       # Acciones Redux
 │   ├── reducers/      # Reducers
 │   └── store.js       # Configuración del store
+├── theme              # Estilo Global
 ├── App.jsx
 └── main.jsx
 ```
