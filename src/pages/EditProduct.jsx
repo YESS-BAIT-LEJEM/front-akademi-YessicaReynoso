@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container,
-  Typography,
-  TextField,
-  Button,
-  Box,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl
+  Container, Typography, TextField, Button, Box,
+  Select, MenuItem, InputLabel, FormControl
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { updateProduct } from '../redux/actions/productActions';
 import ConfirmDialog from '../components/ConfirmDialog';
 import Message from '../components/Message';
 
@@ -33,13 +28,10 @@ const imageOptions = [
 const EditProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch(); 
+
   const [product, setProduct] = useState({
-    name: '',
-    price: '',
-    category: '',
-    stock: '',
-    description: '',
-    image: ''
+    name: '', price: '', category: '', stock: '', description: '', image: ''
   });
 
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -54,7 +46,7 @@ const EditProduct = () => {
         const data = res.data;
         setProduct({
           ...data,
-          image: data.image || 'pet-images/default.png' // imagen por defecto
+          image: data.image || 'pet-images/default.png' 
         });
       })
       .catch(err => console.log(err));
@@ -81,9 +73,10 @@ const EditProduct = () => {
   const handleSave = () => {
     axios.put(`http://localhost:3001/products/${id}`, {
       ...product,
-      image: product.image || 'pet-images/default.png' // guardar imagen por defecto si falta
+      image: product.image || 'pet-images/default.png'
     })
-      .then(() => {
+      .then((res) => {
+        dispatch(updateProduct(res.data)); 
         setMessageText('Producto editado exitosamente');
         setMessageSeverity('success');
         setMessageOpen(true);

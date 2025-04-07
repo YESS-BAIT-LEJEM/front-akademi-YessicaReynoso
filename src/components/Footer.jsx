@@ -15,7 +15,7 @@ const Footer = () => {
   }}
 >
   <Typography variant="body1" sx={{ fontWeight: 500, color: '#7B3F61' }}>
-    © {new Date().getFullYear()} Gestor Petshop 🐾
+    © {new Date().getFullYear()} GestorRuff Petshop 🐾
   </Typography>
   <Typography variant="body2" sx={{ mt: 1, color: '#8E4A65' }}>
     Desarrollado con ❤️ por Yessica Reynoso

@@ -5,7 +5,7 @@
       "name": "Collar Rosa Pastel",
       "category": "accesorio",
       "price": 1580,
-      "stock": 100,
+      "stock": "80",
       "description": "Collar para mascotas pequeñas.",
       "image": "pet-images/collar-rosa.png"
     },
@@ -107,6 +107,33 @@
       "stock": 15,
       "description": "Bolso reforzado para transportar mascotas pequeñas.",
       "image": "pet-images/bolsa-transportadora-mascota.png"
+    },
+    {
+      "id": "d0bf",
+      "name": "Pelota para Mascota",
+      "price": 1200,
+      "category": "accesorio",
+      "stock": 12,
+      "description": "Pelota para tu mascota de color roja",
+      "image": "pet-images/default.png"
+    },
+    {
+      "id": "a472",
+      "name": "Ropa para Gatito Corazones",
+      "price": 6000,
+      "category": "accesorio",
+      "stock": 23,
+      "description": "Ropara para tu gatito de corazones",
+      "image": "pet-images/default.png"
+    },
+    {
+      "id": "1617",
+      "name": "Cortador de  Uñas ",
+      "price": 7000,
+      "category": "accesorio",
+      "stock": 3,
+      "description": "Cortador de uñar para tu mascota",
+      "image": "pet-images/default.png"
     }
   ]
 }
