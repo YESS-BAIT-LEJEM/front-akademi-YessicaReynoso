@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import {
   Container,
   TextField,
   Button,
   Typography,
   Box,
-  MenuItem
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ConfirmDialog from '../components/ConfirmDialog';
 import Message from '../components/Message';
+
+const imageOptions = [
+  'collar-rosa.png',
+  'tazon-doble.png',
+  'shampoo-mascota.png',
+  'collar-rosa-monio.png',
+  'cepillo-mascota.png',
+  'piedras-sanitarias.png',
+  'pipeta-gato.png',
+  'pipeta-perro.png',
+  'raton-peluche.png',
+  'ropa-perrito.png',
+  'soga-juguete.png',
+  'bolsa-transportadora-mascota.png'
+];
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -20,8 +37,7 @@ const AddProduct = () => {
     price: '',
     stock: '',
     description: '',
-    image: '',
-    category: '',
+    image: ''
   });
 
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -30,10 +46,9 @@ const AddProduct = () => {
   const [messageSeverity, setMessageSeverity] = useState('success');
   const [errors, setErrors] = useState({});
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (name === 'stock') {
       const stockValue = parseInt(value, 10);
       if (stockValue < 0) {
@@ -42,65 +57,59 @@ const AddProduct = () => {
         setErrors(prev => ({ ...prev, stock: '' }));
       }
     }
-  
+
     setFormData({ ...formData, [name]: value });
   };
-  
-  const handleSave = async () => {
-    try {
-      await axios.post('http://localhost:3001/products', {
-        ...formData,
-        price: parseFloat(formData.price),
-        stock: parseInt(formData.stock),
-      });
-      setMessageText('Producto agregado exitosamente');
-      setMessageSeverity('success');
-      setMessageOpen(true);
-      setTimeout(() => navigate('/'), 1500);
-    } catch (err) {
-      console.error('Error al agregar producto:', err);
-      setMessageText('Error al agregar el producto');
-      setMessageSeverity('error');
-      setMessageOpen(true);
-    } finally {
-      setConfirmOpen(false);
-    }
-  };
+
+ const handleSave = async () => {
+  try {
+    await axios.post('http://localhost:3001/products', {
+      ...formData,
+      price: parseFloat(formData.price),
+      stock: parseInt(formData.stock),
+      image: formData.image || 'pet-images/default.png' // 👈 acá asignamos imagen por defecto
+    });
+    setMessageText('Producto agregado exitosamente');
+    setMessageSeverity('success');
+    setMessageOpen(true);
+    setTimeout(() => navigate('/'), 1500);
+  } catch (err) {
+    console.error('Error al agregar producto:', err);
+    setMessageText('Error al agregar el producto');
+    setMessageSeverity('error');
+    setMessageOpen(true);
+  } finally {
+    setConfirmOpen(false);
+  }
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  
-    const stockValue = parseInt(formData.stock, 10);
-    if (stockValue < 0) {
-      setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
-      return;
-    }
-  
+
     if (
       !formData.name ||
       !formData.price ||
       !formData.stock ||
-      !formData.description ||
-      !formData.image||
-      !formData.category
+      !formData.description
     ) {
       setMessageText('Todos los campos son obligatorios');
       setMessageSeverity('warning');
       setMessageOpen(true);
       return;
     }
-  
+
+    if (parseInt(formData.stock, 10) < 0) {
+      setErrors(prev => ({ ...prev, stock: 'No puede ser negativo' }));
+      return;
+    }
+
     setConfirmOpen(true);
   };
-  
+
   return (
     <Container maxWidth="sm">
-      <Typography variant="h5" sx={{
-    my: 3,
-    fontWeight: 600,
-    color: 'primary.main',
-    letterSpacing: '1px'
-  }}>
+      <Typography variant="h5" sx={{ my: 3, fontWeight: 600, color: 'primary.main' }}>
         Agregar nuevo producto
       </Typography>
 
@@ -109,13 +118,38 @@ const AddProduct = () => {
         <TextField fullWidth name="price" label="Precio*" type="number" value={formData.price} onChange={handleChange} sx={{ mb: 2 }} />
         <TextField fullWidth name="stock" label="Stock*" type="number" value={formData.stock} onChange={handleChange} error={!!errors.stock} helperText={errors.stock} sx={{ mb: 2 }} />
         <TextField fullWidth name="description" label="Descripción*" value={formData.description} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth name="image" label="URL Imagen*" value={formData.image} onChange={handleChange} sx={{ mb: 2 }} />
-        <TextField fullWidth name="category" label="Categoría*" select value={formData.category} onChange={handleChange} sx={{ mb: 2 }}>
-          <MenuItem value="alimento">Alimento</MenuItem>
-          <MenuItem value="accesorio">Accesorio</MenuItem>
-          <MenuItem value="juguete">Juguete</MenuItem>
-          <MenuItem value="higiene">Higiene</MenuItem>
-        </TextField>
+
+        <FormControl fullWidth sx={{ mb: 2 }}>
+          <InputLabel id="image-label">Imagen</InputLabel>
+          <Select
+            labelId="image-label"
+            name="image"
+            value={formData.image}
+            onChange={handleChange}
+            renderValue={(selected) => (
+              <Box display="flex" alignItems="center" gap={1}>
+                <img src={`/pet-images/${selected}`} alt="preview" width={40} />
+                {selected}
+              </Box>
+            )}
+            MenuProps={{
+              PaperProps: {
+                style: {
+                  maxHeight: 300
+                }
+              }
+            }}
+          >
+            {imageOptions.map((img, i) => (
+              <MenuItem key={i} value={`pet-images/${img}`}>
+                <Box display="flex" alignItems="center" gap={1}>
+                  <img src={`/pet-images/${img}`} alt={img} width={40} />
+                  {img}
+                </Box>
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 3 }}>
           <Button variant="outlined" color="inherit" onClick={() => navigate('/')}>
